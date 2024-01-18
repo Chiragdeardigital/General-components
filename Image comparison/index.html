@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        outline: none;
+      }
+      .picture-curtain img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .picture-curtain {
+        display: block;
+        position: relative;
+        width: 500px;
+
+        height: 100%;
+        aspect-ratio: 1;
+        overflow: hidden;
+      }
+
+      .before-image-container,
+      .after-image-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        aspect-ratio: 1;
+        overflow: hidden;
+      }
+      .before-image-container {
+        width: var(--thumb-slider, 50%);
+        z-index: 2;
+      }
+      .before-image-container img,
+      .after-image-container img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        aspect-ratio: 1;
+      }
+
+      .before-image-container img {
+        width: auto;
+      }
+
+      .compare__separator {
+        display: block;
+        width: 8px;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        right: 0;
+        color: #fff;
+        background-color: #fff;
+        pointer-events: none;
+      }
+
+      .thumb-slider {
+        position: absolute;
+        top: calc(50% - 40px);
+        left: -40px;
+        width: calc(100% + 80px);
+        height: 80px;
+        -webkit-appearance: none;
+        appearance: none;
+        outline: none;
+        margin: 0;
+        transition: all 0.2s;
+        background-color: transparent;
+        padding: 0;
+        border: none;
+        z-index: 3;
+        pointer-events: none;
+      }
+
+      .thumb-slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 80px;
+        height: 80px;
+        background: #fff url("https://cdn.shopify.com/s/files/1/0369/1374/1960/files/scroller-thumb.svg?v=1671621069")
+          no-repeat center;
+        border: 2px solid #fff;
+        border-radius: 50%;
+        cursor: move;
+        pointer-events: auto;
+      }
+
+      .thumb-slider::-moz-range-thumb {
+        width: 80px;
+        height: 80px;
+        background: #fff url("https://cdn.shopify.com/s/files/1/0369/1374/1960/files/scroller-thumb.svg?v=1671621069")
+          no-repeat center;
+        border: 2px solid #fff;
+        border-radius: 50%;
+        cursor: move;
+        pointer-events: auto;
+      }
+    </style>
+
+  </head>
+  <body>
+    <image-comparison-slider>
+      <div class="picture-curtain">
+        <div class="before-image-container">
+          <img src="https://picsum.photos/id/866/500/300" alt="" loading="lazy" />
+          <span class="compare__separator"></span>
+        </div>
+        <div class="after-image-container">
+          <img src="https://picsum.photos/id/867/500/300" alt="" loading="lazy" />
+        </div>
+        <input type="range" min="1" max="100" value="50" class="thumb-slider" name="thumb-slider" data-thumb-slider />
+      </div>
+    </image-comparison-slider>
+
+    <script src="script.js"></script>
+  </body>
+</html>
