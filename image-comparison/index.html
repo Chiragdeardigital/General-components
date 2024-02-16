@@ -51,6 +51,7 @@
 
       .before-image-container img {
         width: auto;
+        filter: grayscale(1); /* B&W */
       }
 
       .compare__separator {
@@ -107,13 +108,12 @@
         pointer-events: auto;
       }
     </style>
-
   </head>
   <body>
     <image-comparison-slider>
       <div class="picture-curtain">
         <div class="before-image-container">
-          <img src="https://picsum.photos/id/866/500/300" alt="" loading="lazy" />
+          <img src="https://picsum.photos/id/867/500/300" alt="" loading="lazy" />
           <span class="compare__separator"></span>
         </div>
         <div class="after-image-container">
